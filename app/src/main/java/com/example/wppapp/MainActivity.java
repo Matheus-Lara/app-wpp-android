@@ -21,5 +21,17 @@ public class MainActivity extends AppCompatActivity {
 
         enviarNumero = findViewById(R.id.enviarNumero);
         enviarMensagem = findViewById(R.id.enviarMensagem);
+
+        this.registerEvents(findViewById(R.id.btn));
+    }
+
+    private void registerEvents(View btn) {
+        btn.setOnClickListener(v -> {
+            String num = Objects.requireNonNull(enviarNumero.getText()).toString();
+            String msg = Objects.requireNonNull(enviarMensagem.getText()).toString();
+            Uri link = Uri.parse("https://wa.me/" + "55" + num + "?text=" + msg);
+            Intent callIntent = new Intent(Intent.ACTION_VIEW, link);
+            startActivity(callIntent);
+        });
     }
 }
