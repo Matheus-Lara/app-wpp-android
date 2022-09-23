@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btn.setOnClickListener(v -> {
             String num = Objects.requireNonNull(enviarNumero.getText()).toString();
             String msg = Objects.requireNonNull(enviarMensagem.getText()).toString();
-            Uri link = Uri.parse("https://wa.me/" + "55" + num + "?text=" + msg);
+            Uri link = Uri.parse("https://wa.me/55" + num + "?text=" + msg);
             Intent callIntent = new Intent(Intent.ACTION_VIEW, link);
             startActivity(callIntent);
         });
